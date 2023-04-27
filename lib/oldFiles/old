@@ -1,0 +1,125 @@
+ final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+    GlobalKey<ScaffoldState> _scaffoldState = GlobalKey<ScaffoldState>();
+    return Scaffold(
+      //appBar: AppBar(title: Text("Dashboard")),
+      //  drawer: Drawer(
+      //   child: Column(),
+      // ),
+      key: _scaffoldState,
+      body:
+          // Stack(
+          //   children: [
+          Container(
+        height: height,
+        width: width,
+        decoration: BoxDecoration(color: Colors.purple),
+        child: Column(
+          children: [
+            // Row(
+            //   children: [
+            //     Column(
+            //       children: [
+            //         Container(
+            //           height: height * .1,
+            //           width: width * .2,
+            //           decoration: const BoxDecoration(color: Colors.purple),
+            //           child: Container(
+            //             // child: IconButton(
+            //             //   color: Colors.black,
+            //             //   icon: Icon(Icons.menu),
+            //             //   onPressed: () {
+            //             //        _scaffoldState.currentState.openDrawer();
+            //             //   },
+            //             // ),
+            //             height: height * .1,
+            //             width: width * .2,
+            //             decoration: const BoxDecoration(
+            //               borderRadius: BorderRadius.only(
+            //                   bottomRight: Radius.circular(30)),
+            //               color: Colors.white,
+            //             ),
+            //           ),
+            //         ),
+            //         Container(
+            //           height: height * .3,
+            //           width: width * .2,
+            //           decoration: const BoxDecoration(
+            //             borderRadius:
+            //                 BorderRadius.only(topLeft: Radius.circular(30)),
+            //             color: Colors.purple,
+            //           ),
+            //         ),
+            //       ],
+            //     ),
+            Container(
+              decoration: BoxDecoration(
+                  borderRadius:
+                      BorderRadius.only(bottomLeft: Radius.circular(90)),
+                  color: Colors.white),
+              child: Container(
+                height: height * .4,
+                child: Container(
+                  height: height * .4,
+                  width: width,
+                  decoration: const BoxDecoration(
+                      // border: Border.all(
+                      //     color: Colors.purple,
+                      //     width: 100,
+                      //     style: BorderStyle.solid),
+                      color: Colors.purple,
+                      borderRadius: BorderRadius.only(
+                        bottomRight: Radius.circular(90),
+                        //   topLeft: Radius.circular(30)
+                      )),
+                ),
+              ),
+            ),
+            //   ],
+            // ),
+            // ),
+            Container(
+              height: height * .6,
+              decoration: const BoxDecoration(
+                  //border: Border.all(color: Colors.purple),
+                  color: Colors.purple,
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(90),
+                  )),
+              child: Container(
+                child: MenuGrid(),
+                height: height * .6,
+                decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius:
+                        BorderRadius.only(topLeft: Radius.circular(90))),
+              ),
+            )
+          ],
+        ),
+      ),
+      //   ],
+      // )
+    );
+
+
+
+    // 
+      Container(
+      child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+        Container(
+          child: MenuGrid(),
+          height: height * 0.6,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(70), topRight: Radius.circular(70)),
+              color: Colors.white),
+        ),
+      ]),
+      height: height,
+      decoration: const BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.topRight,
+              colors: [Colors.purple, Colors.purple])),
+    )

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:provider/provider.dart';
 import '../providers/employees.dart';
 import '../providers/employee.dart';
-import '../providers/attendenceList.dart';
 
 class AllEmployees extends StatefulWidget {
   @override

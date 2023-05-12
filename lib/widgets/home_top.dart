@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../providers/authentication.dart';
 
 class HomeTop extends StatelessWidget {
   const HomeTop({
@@ -12,9 +14,12 @@ class HomeTop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final _empDetail =
+        Provider.of<Authentication>(context, listen: false).empDetail;
+
     return LayoutBuilder(
       builder: (context, constraints) => Stack(children: [
-        Container(
+        SizedBox(
           //color: Colors.purple,
           height: constraints.maxHeight,
           width: width,
@@ -54,26 +59,26 @@ class HomeTop extends StatelessWidget {
             top: constraints.maxHeight * .35,
             //height * .15,
             left: width * .075,
-            child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
-                  Text(
-                    'Hi Vignesh',
-                    style: TextStyle(fontSize: 40, color: Colors.white),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  Text('Today task\'s',
-                      style: TextStyle(fontSize: 20, color: Colors.white))
-                ])),
-        Positioned(
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Text(
+                'Hi ${_empDetail.name}',
+                style: const TextStyle(fontSize: 40, color: Colors.white),
+              ),
+              const SizedBox(
+                height: 5,
+              ),
+              Text(_empDetail.designation,
+                  style: const TextStyle(fontSize: 20, color: Colors.white))
+            ])),
+        /*     Positioned(
             left: width * .15,
             top: constraints.maxHeight * .70,
             //height * .28,
             child: Row(
               children: const [
                 Card(
+                  color: Colors.amberAccent,
                   child: Padding(
                     padding: EdgeInsets.all(15),
                     child: Text(
@@ -110,7 +115,7 @@ class HomeTop extends StatelessWidget {
                   ),
                 ),
               ],
-            ))
+            ))*/
       ]),
     );
   }

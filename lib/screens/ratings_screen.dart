@@ -149,15 +149,20 @@ class _RatingsListState extends State<RatingsList> {
             child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     primary: Colors.purple, onPrimary: Colors.white),
-                onPressed: () {
+                onPressed: () async {
                   if (empList.every(
                       (emp) => emp.stageId != '0' && emp.ratingStar > 0)) {
                     try {
                       if (empList.any((emp) => emp.isModified == true)) {
-                        Provider.of<RatingsProvider>(context, listen: false)
+                        await Provider.of<RatingsProvider>(context,
+                                listen: false)
                             .saveRatings();
                         showToast('Saved successfuly',
                             Color.fromRGBO(55, 157, 0, 100));
+                        // ignore: use_build_context_synchronously
+                        await Provider.of<RatingsProvider>(context,
+                                listen: false)
+                            .fetchRatingCardList(date!);
                         //while api call make all ismodified false
                         // throw Error();
                       } else {

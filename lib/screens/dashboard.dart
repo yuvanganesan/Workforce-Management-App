@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/menu_grid.dart';
 import '../widgets/home_top.dart';
+import '../widgets/main_drawer.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
@@ -11,9 +12,8 @@ class Dashboard extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       drawer: const Drawer(
-          child: Center(
-        child: Text('drawer'),
-      )),
+        child: MainDrawer(),
+      ),
       body: Stack(children: [
         Row(
           children: [

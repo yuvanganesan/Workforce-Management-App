@@ -15,7 +15,7 @@ class NFC extends StatelessWidget {
   Future<void> pageMain() async {
     WidgetsFlutterBinding.ensureInitialized(); // Required for the line below
     isNfcAvailable = await NfcManager.instance.isAvailable();
-    print('first ${isNfcAvailable}');
+    // print('first ${isNfcAvailable}');
   }
 
   @override
@@ -24,12 +24,12 @@ class NFC extends StatelessWidget {
         future: pageMain(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            print('progress indicator');
+            // print('progress indicator');
             return const Center(
               child: CircularProgressIndicator(),
             );
           } else {
-            print('second ${isNfcAvailable}');
+            // print('second ${isNfcAvailable}');
             return WillPopScope(
                 onWillPop: () async {
                   //print('session stoped');
@@ -107,9 +107,9 @@ class NfcTest extends StatelessWidget {
 
             final storedCounters = int.tryParse(payload);
 
-
+chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security
             */
-        final payload = serialNo.substring(3);
+        final payload = serialNo.substring(0);
         print(payload);
         tagValid = true;
 
@@ -134,8 +134,10 @@ class NfcTest extends StatelessWidget {
                           style: const TextStyle(fontSize: 15))
                     ],
                   )
-                : Text(loadedData['Message']!,
-                    style: const TextStyle(fontSize: 15))));
+                : Center(
+                    child: Text(loadedData['Message']!,
+                        style: const TextStyle(fontSize: 15)),
+                  )));
         //  }
         //  }
       } catch (error) {

@@ -45,8 +45,8 @@ class AttendenceList with ChangeNotifier {
       if (response.statusCode == 200) {
         final List<dynamic> loadedData =
             (json.decode(response.body) as Map<String, dynamic>)['data'];
-        // print(loadedData);
-        if (loadedData == null) // || loadedData.length == 0)
+        //print(loadedData);
+        if (loadedData == null) //|| loadedData.length == 0)
         {
           throw HttpException('There is no records');
         }
@@ -54,11 +54,12 @@ class AttendenceList with ChangeNotifier {
         List<AttendenceCard> attendenceFetch = [];
         loadedData.forEach((emp) {
           attendenceFetch.add(AttendenceCard(
-            id: emp['EMP_ID'].toString(),
-            name: emp['NAME'],
-            checkInTime: emp['IN_TIME'],
-            checkOutTime: emp['OUT_TIME'],
-          ));
+              id: emp['EMP_ID'].toString(),
+              name: emp['NAME'],
+              checkInTime: emp['IN_TIME'],
+              checkOutTime: emp['OUT_TIME'],
+              date: '',
+              day: ''));
         });
         //print(attendenceFetch);
         _attendenceList = attendenceFetch;

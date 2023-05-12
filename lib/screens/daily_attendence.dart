@@ -9,12 +9,10 @@ class Attendence extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Attendence"),
-        ),
-        body: ChangeNotifierProvider.value(
-          value: AttendenceList(),
-          child: AttendenceCardList(),
-        ));
+      appBar: AppBar(
+        title: Text("Attendence"),
+      ),
+      body: AttendenceCardList(),
+    );
   }
 }

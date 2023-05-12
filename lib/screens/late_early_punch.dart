@@ -15,8 +15,7 @@ class LateAndEarlyPunch extends StatefulWidget {
 class _LateAndEarlyPunchState extends State<LateAndEarlyPunch> {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider.value(
-        value: AttendenceList(), child: const LateEarlyNavigation());
+    return const LateEarlyNavigation();
   }
 }
 

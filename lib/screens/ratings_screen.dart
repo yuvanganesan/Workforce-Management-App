@@ -66,8 +66,8 @@ class _RatingsListState extends State<RatingsList> {
           child: ListTile(
             leading: TextButton(
               onPressed: datePicker,
-              style:
-                  TextButton.styleFrom(primary: Theme.of(context).primaryColor),
+              style: TextButton.styleFrom(
+                  foregroundColor: Theme.of(context).colorScheme.primary),
               child: const Text(
                 'Choose Date',
                 style: TextStyle(fontWeight: FontWeight.bold),
@@ -80,7 +80,8 @@ class _RatingsListState extends State<RatingsList> {
                 : Text(DateFormat('dd/MM/yy').format(date!)),
             trailing: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    primary: Colors.purple, onPrimary: Colors.white),
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.purple),
                 onPressed: date != null
                     ? () async {
                         //print('submited');
@@ -148,7 +149,8 @@ class _RatingsListState extends State<RatingsList> {
             padding: const EdgeInsets.only(right: 20, left: 10),
             child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    primary: Colors.purple, onPrimary: Colors.white),
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.purple),
                 onPressed: () async {
                   if (empList.every(
                       (emp) => emp.stageId != '0' && emp.ratingStar > 0)) {

@@ -84,7 +84,8 @@ class _AllEmployeesState extends State<AllEmployees> {
                   //   builder: (context, value, child) =>
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          primary: Colors.purple, onPrimary: Colors.white),
+                          foregroundColor: Colors.white,
+                          backgroundColor: Colors.purple),
                       onPressed: (otEmployes.isEmpty ||
                               otEmployes.any((otEmp) => otEmp.statusCode != 5))
                           //         &&

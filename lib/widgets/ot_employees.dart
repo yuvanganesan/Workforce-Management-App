@@ -41,7 +41,8 @@ class OtEmployees extends StatelessWidget {
             child: Consumer<Employees>(
                 builder: (context, confirm, _) => ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          primary: Colors.purple, onPrimary: Colors.white),
+                          foregroundColor: Colors.white,
+                          backgroundColor: Colors.purple),
                       onPressed: otEmployees.isNotEmpty &&
                               otEmployees.any((otEmp) => otEmp.statusCode != 5)
                           ? () {

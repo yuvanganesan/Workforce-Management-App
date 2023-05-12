@@ -3,7 +3,6 @@ import '../widgets/all_employees.dart';
 import '../widgets/ot_employees.dart';
 import '../providers/employees.dart';
 import 'package:provider/provider.dart';
-import '../providers/attendenceList.dart';
 
 class OtStaffSelection extends StatelessWidget {
   static const routeName = '/otstaffselection';
@@ -17,16 +16,19 @@ class OtStaffSelection extends StatelessWidget {
           child: Scaffold(
             appBar: AppBar(
               title: const Text("Employees"),
-              bottom: const TabBar(tabs: [
-                Tab(
-                  text: "All Staff's",
-                  icon: Icon(Icons.people),
-                ),
-                Tab(
-                  text: "Ot Staff's",
-                  icon: Icon(Icons.people),
-                ),
-              ]),
+              bottom: TabBar(
+                tabs: [
+                  Tab(
+                    text: "All Staff's",
+                    icon: Icon(Icons.people),
+                  ),
+                  Tab(
+                    text: "Ot Staff's",
+                    icon: Icon(Icons.people),
+                  ),
+                ],
+                indicatorColor: Theme.of(context).colorScheme.secondary,
+              ),
             ),
             body: TabBarView(children: [AllEmployees(), OtEmployees()]),
           ),

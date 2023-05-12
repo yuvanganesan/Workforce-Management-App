@@ -56,7 +56,7 @@ class _EmpAttendenceState extends State<EmpAttendence> {
                 child: TextButton(
                   onPressed: () => datePicker(true),
                   style: TextButton.styleFrom(
-                      primary: Theme.of(context).primaryColor),
+                      foregroundColor: Theme.of(context).colorScheme.primary),
                   child: const Text(
                     'Start Date',
                     style: TextStyle(fontWeight: FontWeight.bold),
@@ -75,7 +75,7 @@ class _EmpAttendenceState extends State<EmpAttendence> {
                 child: TextButton(
                   onPressed: () => datePicker(false),
                   style: TextButton.styleFrom(
-                      primary: Theme.of(context).primaryColor),
+                      foregroundColor: Theme.of(context).colorScheme.primary),
                   child: const Text(
                     'End Date',
                     style: TextStyle(fontWeight: FontWeight.bold),
@@ -94,7 +94,8 @@ class _EmpAttendenceState extends State<EmpAttendence> {
           ListTile(
             title: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    primary: Colors.purple, onPrimary: Colors.white),
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.purple),
                 onPressed: date1 != null && date2 != null
                     ? () async {
                         if (date2!.isBefore(date1!)) {

@@ -60,8 +60,8 @@ class _LateEarlyNavigationState extends State<LateEarlyNavigation> {
           child: ListTile(
             leading: TextButton(
               onPressed: datePicker,
-              style:
-                  TextButton.styleFrom(primary: Theme.of(context).primaryColor),
+              style: TextButton.styleFrom(
+                  foregroundColor: Theme.of(context).colorScheme.primary),
               child: const Text(
                 'Choose Date',
                 style: TextStyle(fontWeight: FontWeight.bold),
@@ -74,7 +74,8 @@ class _LateEarlyNavigationState extends State<LateEarlyNavigation> {
                 : Text(DateFormat('dd/MM/yy').format(date!)),
             trailing: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    primary: Colors.purple, onPrimary: Colors.white),
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.purple),
                 onPressed: date != null
                     ? () async {
                         //print('submited');

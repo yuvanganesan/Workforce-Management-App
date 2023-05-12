@@ -12,7 +12,7 @@ class MainDrawer extends StatelessWidget {
         Container(
           height: 120,
           width: double.infinity,
-          color: Theme.of(context).primaryColor,
+          color: Theme.of(context).colorScheme.primary,
           alignment: Alignment.centerLeft,
           child: FittedBox(
             fit: BoxFit.fitWidth,

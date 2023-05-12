@@ -22,7 +22,7 @@ class HomeTop extends StatelessWidget {
         SizedBox(
           //color: Colors.purple,
           height: constraints.maxHeight,
-          width: width,
+          width: constraints.maxWidth,
         ),
         Positioned(
           top: constraints.maxHeight * .2,
@@ -59,11 +59,15 @@ class HomeTop extends StatelessWidget {
             top: constraints.maxHeight * .35,
             //height * .15,
             left: width * .075,
+            right: width * .01,
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Text(
-                'Hi ${_empDetail.name}',
-                style: const TextStyle(fontSize: 40, color: Colors.white),
+              FittedBox(
+                fit: BoxFit.fitWidth,
+                child: Text(
+                  'Hi ${_empDetail.name}',
+                  style: const TextStyle(fontSize: 40, color: Colors.white),
+                ),
               ),
               const SizedBox(
                 height: 5,

@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class RecordAttendance with ChangeNotifier {
-  final _ip = 'http://192.168.1.100:94';
+  final _ip = 'http://192.168.1.101:94';
   Future<Map<String, dynamic>> recordAttendance(String payload) async {
     try {
       final url = Uri.parse('$_ip/Overtime/RecordAttendance?data=$payload');

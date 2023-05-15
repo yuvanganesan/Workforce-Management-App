@@ -17,7 +17,7 @@ class MainDrawer extends StatelessWidget {
           child: FittedBox(
             fit: BoxFit.fitWidth,
             child: Text(
-              "Wages Automation..!",
+              "Wages",
               style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.w900,

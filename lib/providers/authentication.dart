@@ -28,7 +28,7 @@ class Authentication with ChangeNotifier {
         isStaff: _employee.isStaff);
   }
 
-  final _ip = 'http://192.168.1.100:94';
+  final _ip = 'http://192.168.1.101:94';
 
   Future<void> login(String empId, String password) async {
     try {

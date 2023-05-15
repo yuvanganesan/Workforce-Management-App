@@ -21,7 +21,7 @@ class OtDetail with ChangeNotifier {
     return total.round().toString();
   }
 
-  final _ip = 'http://192.168.1.100:94';
+  final _ip = 'http://192.168.1.101:94';
   Future<void> fetchOtSalary(int empId, DateTime date1, DateTime date2) async {
     try {
       final url = Uri.parse(

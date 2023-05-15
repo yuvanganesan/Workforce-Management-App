@@ -29,7 +29,7 @@ class SingleEmpAttendence with ChangeNotifier {
     return [..._attendenceList];
   }
 
-  final _ip = 'http://192.168.1.100:94';
+  final _ip = 'http://192.168.1.101:94';
   Future<void> fetchAttendence(
       int empId, DateTime date1, DateTime date2) async {
     try {

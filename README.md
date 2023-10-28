@@ -6,5 +6,6 @@
 ![Screenshot_2023-10-27-19-07-24-819_com example wagesui](https://github.com/yuvanganesan/Workforce-Management-App/assets/122734129/c12d5025-f9d4-434c-a8db-1f037fc9c446)
 ![Screenshot_2023-10-27-19-08-15-367_com example wagesui](https://github.com/yuvanganesan/Workforce-Management-App/assets/122734129/6946c2aa-27c6-4fd8-be80-55f92f022426)
 2543)
+
 19-08-21-127_com.example.wagesui.jpg…]()
 34129/96516615-928c-4264-acbf-ab125f35668d)

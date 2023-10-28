@@ -1,15 +1,6 @@
-![Screenshot_2023-10-27-19-08-31-141_com example wagesui](https://github.com/yuvanganesan/Workforce-Management-App/assets/122734129/2229d4c9-4b19-49a0-9ec4-17ed0a041f1e)
-![Screenshot_2023-10-27-19-08-04-869_com example wagesui](https://github.com/yuvanganesan/Workforce-Management-App/assets/1227
-
-![Uploading Screenshot_2023-10-27-
-![Screenshot_2023-10-27-19-08-29-159_com example wagesui](https://github.com/yuvanganesan/Workforce-Management-App/assets/122734129/46523c1e-307e-4c8c-8e0c-66cdb400
-
-![Screenshot_2023-10-27-19-07-39-316_com example wagesui](https://github.com/yuvanganesan/Workforce-Management-App/assets/122734129/db140032-767d-458d-83e1-16ce888b5a51)
-
-![Screenshot_2023-10-27-19-07-24-819_com example wagesui](https://github.com/yuvanganesan/Workforce-Management-App/assets/122734129/c12d5025-f9d4-434c-a8db-1f037fc9c446)
-
-![Screenshot_2023-10-27-19-08-15-367_com example wagesui](https://github.com/yuvanganesan/Workforce-Management-App/assets/122734129/6946c2aa-27c6-4fd8-be80-55f92f022426)
-2543)
-
-19-08-21-127_com.example.wagesui.jpg…]()
-34129/96516615-928c-4264-acbf-ab125f35668d)
+![Screenshot_2023-10-27-19-08-31-141_com example wagesui](https://github.com/yuvanganesan/Workforce-Management-App/assets/122734129/ddc11bdb-51ea-4e91-8051-36f0fc6b29b2)
+![Screenshot_2023-10-27-19-08-04-869_com example wagesui](https://github.com/yuvanganesan/Workforce-Management-App/assets/122734129/8e43182b-4cad-453d-824c-1ab75c1f85a5)
+![Screenshot_2023-10-27-19-07-24-819_com example wagesui](https://github.com/yuvanganesan/Workforce-Management-App/assets/122734129/f54d66e6-fce1-4f02-be6b-ad903e3a8eb4)
+![Screenshot_2023-10-27-19-08-15-367_com example wagesui](https://github.com/yuvanganesan/Workforce-Management-App/assets/122734129/045e35d1-5179-4416-8d5f-2bc5df9b72a0)
+![Screenshot_2023-10-27-19-08-21-127_com example wagesui](https://github.com/yuvanganesan/Workforce-Management-App/assets/122734129/b131880e-ee94-400e-a6c3-f7d34aac223c)
+![Uploading Screenshot_2023-10-27-19-07-39-316_com.example.wagesui.jpg…]()

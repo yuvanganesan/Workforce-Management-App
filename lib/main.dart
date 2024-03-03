@@ -38,14 +38,13 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
           theme: ThemeData(
-              appBarTheme: const AppBarTheme(color: Colors.purple),
+              appBarTheme: const AppBarTheme(color: Color(0xffcb6ce6)),
               colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.purple)
                   .copyWith(secondary: Colors.white)),
           debugShowCheckedModeBanner: false,
-          title: "wagesUI",
+          title: "Workforce Management App",
           home: Consumer<Authentication>(
             builder: (context, _auth, child) {
-              // print('\n${_auth.isAuth}');
               return _auth.isAuth == false
                   ? const AuthScreen()
                   : _auth.empDetail.isStaff == true
@@ -53,7 +52,6 @@ class MyApp extends StatelessWidget {
                       : EmployeeDashboard();
             },
           ),
-          // Dashboard(), //TempDashboard(), //FirstScreen() Splash(),
           routes: {
             Attendence.routeName: (context) => Attendence(),
             LateAndEarlyPunch.routeName: (context) => LateAndEarlyPunch(),

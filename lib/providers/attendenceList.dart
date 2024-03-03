@@ -5,25 +5,10 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../models/httpException.dart';
 import 'package:intl/intl.dart';
+import './ip.dart';
 
 class AttendenceList with ChangeNotifier {
-  List<AttendenceCard> _attendenceList = [
-    //  AttendenceCard(
-    //       id: '2',
-    //       name: 'Yuvan',
-    //       checkInTime: '09:02:14',
-    //       checkOutTime: '11:00:00'),
-    //   AttendenceCard(
-    //       id: '3',
-    //       name: 'Salvin',
-    //       checkInTime: '09:00:10',
-    //       checkOutTime: '10:40:00'),
-    //   AttendenceCard(
-    //       id: '4',
-    //       name: 'Karthik',
-    //       checkInTime: '09:00:60',
-    //       checkOutTime: '11:30:00')
-  ];
+  List<AttendenceCard> _attendenceList = [];
 
   List<AttendenceCard> get attendenceList {
     return [..._attendenceList];
@@ -35,18 +20,17 @@ class AttendenceList with ChangeNotifier {
     return [..._attendenceList];
   }
 
-  final _ip = 'http://192.168.1.101:94';
   Future<void> fetchAttendence(DateTime date) async {
     try {
       final url = Uri.parse(
-          '$_ip/Overtime/getAttendance?data=${DateFormat('yyyy-MM-dd').format(date)}');
+          '$ip/Overtime/getAttendance?data=${DateFormat('yyyy-MM-dd').format(date)}');
       final response = await http.get(url);
       //print('inside');
       if (response.statusCode == 200) {
         final List<dynamic> loadedData =
             (json.decode(response.body) as Map<String, dynamic>)['data'];
         //print(loadedData);
-        if (loadedData == null) //|| loadedData.length == 0)
+        if (loadedData.isEmpty) //|| loadedData.length == 0)
         {
           throw HttpException('There is no records');
         }

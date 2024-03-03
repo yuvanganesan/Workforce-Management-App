@@ -1,4 +1,4 @@
-name: wagesui
+name: WorkforceManagementApp
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -36,7 +36,6 @@ dependencies:
   nfc_manager: ^3.2.0
   provider: ^6.0.3
   sliding_up_panel: ^2.0.0+1
-  #splashscreen : ^1.3.5 
 
 
   # The following adds the Cupertino Icons font to your application.

@@ -3,6 +3,7 @@ import '../models/login_session.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../models/httpException.dart';
+import './ip.dart';
 
 class Authentication with ChangeNotifier {
   // ignore: prefer_final_fields
@@ -28,12 +29,10 @@ class Authentication with ChangeNotifier {
         isStaff: _employee.isStaff);
   }
 
-  final _ip = 'http://192.168.1.101:94';
-
   Future<void> login(String empId, String password) async {
     try {
       final url = Uri.parse(
-          '$_ip/Overtime/ValidateEmployeeLogin?EMP_ID=$empId&PASS=$password');
+          '$ip/Overtime/ValidateEmployeeLogin?EMP_ID=$empId&PASS=$password');
       final response = await http.get(url);
       final _statusCode = json.decode(response.body)['statusCode'];
       // print(_statusCode);

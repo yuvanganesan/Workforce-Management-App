@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:provider/provider.dart';
+import './ip.dart';
 import '../models/ratings.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -7,17 +7,7 @@ import '../models/httpException.dart';
 import 'package:intl/intl.dart';
 
 class RatingsProvider with ChangeNotifier {
-  List<Ratings> _empRatingCardList = [
-    // Ratings(empId: '2', name: "Yuvan", stageId: '0', id: '0', ratingStar: 4),
-    // Ratings(empId: '3', name: 'Salvin', stageId: '0', id: '0', ratingStar: 4.5),
-    // Ratings(empId: '4', name: "Karthick", stageId: '0', id: '0', ratingStar: 0),
-    // Ratings(empId: '2', name: "Yuvan", stageId: '0', id: '0', ratingStar: 4),
-    // Ratings(empId: '3', name: 'Salvin', stageId: '0', id: '0', ratingStar: 4.5),
-    // Ratings(empId: '4', name: "Karthick", stageId: '0', id: '0', ratingStar: 0),
-    // Ratings(empId: '2', name: "Yuvan", stageId: '0', id: '0', ratingStar: 4),
-    // Ratings(empId: '3', name: 'Salvin', stageId: '0', id: '0', ratingStar: 4.5),
-    // Ratings(empId: '4', name: "Karthick", stageId: '0', id: '0', ratingStar: 0)
-  ];
+  List<Ratings> _empRatingCardList = [];
 
   Map<String, String> _dropDownItems = {};
 
@@ -29,16 +19,15 @@ class RatingsProvider with ChangeNotifier {
     return {..._dropDownItems};
   }
 
-  final _ip = 'http://192.168.1.101:94';
   Future<void> fetchDropDownItem() async {
     try {
-      final url = Uri.parse('$_ip/Overtime/GetWorkstation');
+      final url = Uri.parse('$ip/Overtime/GetWorkstation');
       final response = await http.get(url);
       if (response.statusCode == 200) {
         final List<dynamic> loadedData =
             (json.decode(response.body) as Map<String, dynamic>)['data'];
 
-        if (loadedData == null) {
+        if (loadedData.isEmpty) {
           throw HttpException('There is no Employee');
         }
         Map<String, String> dropDownFetch = {};
@@ -59,14 +48,14 @@ class RatingsProvider with ChangeNotifier {
   Future<void> fetchRatingCardList(DateTime date) async {
     try {
       final url = Uri.parse(
-          '$_ip/Overtime/GetPerformancebyDate?SWIPE_DATE=${DateFormat('yyyy-MM-dd').format(date)}');
+          '$ip/Overtime/GetPerformancebyDate?SWIPE_DATE=${DateFormat('yyyy-MM-dd').format(date)}');
       final response = await http.get(url);
 
       if (response.statusCode == 200) {
         final List<dynamic> loadedData =
             (json.decode(response.body) as Map<String, dynamic>)['data'];
 
-        if (loadedData == null) {
+        if (loadedData.isEmpty) {
           throw HttpException('There is no records');
         }
 
@@ -103,7 +92,7 @@ class RatingsProvider with ChangeNotifier {
   Future<void> saveRatings() async {
     try {
       //  print('saved');
-      final url = Uri.parse('$_ip/Overtime/InsertUpdatePerformance');
+      final url = Uri.parse('$ip/Overtime/InsertUpdatePerformance');
 
       List<Map> data = List.generate(_empRatingCardList.length, (index) {
         if (_empRatingCardList[index].isModified == true) {
@@ -120,7 +109,7 @@ class RatingsProvider with ChangeNotifier {
         return {};
       });
 
-      final response = await http.post(
+      await http.post(
         url,
         body: json.encode(data),
         headers: {

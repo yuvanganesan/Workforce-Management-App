@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-
 class AttendenceCard {
   final String id;
   final String name;

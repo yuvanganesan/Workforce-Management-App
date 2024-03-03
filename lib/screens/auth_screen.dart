@@ -12,30 +12,28 @@ class AuthScreen extends StatelessWidget {
     final deviceSize = MediaQuery.of(context).size;
 
     return Scaffold(
-      // resizeToAvoidBottomInset: false,
-      body: SingleChildScrollView(
-        child: Container(
-          color: Colors.purple,
-          // Color(0xffcb6ce6),
-          height: deviceSize.height,
-          width: deviceSize.width,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Flexible(
-                child: Container(
-                    margin: const EdgeInsets.only(bottom: 20.0),
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 8.0, horizontal: 94.0),
-                    child: Image.asset('assets/images/logo.png')),
-              ),
-              Flexible(
-                flex: deviceSize.width > 600 ? 2 : 1,
-                child: const AuthCard(),
-              ),
-            ],
-          ),
+      resizeToAvoidBottomInset: false,
+      body: Container(
+        color: //Colors.purple,
+            Color(0xffcb6ce6),
+        height: deviceSize.height,
+        width: deviceSize.width,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Flexible(
+              child: Container(
+                  margin: const EdgeInsets.only(bottom: 20.0),
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 8.0, horizontal: 94.0),
+                  child: Image.asset('assets/images/logo.png')),
+            ),
+            Flexible(
+              flex: deviceSize.width > 600 ? 2 : 1,
+              child: const AuthCard(),
+            ),
+          ],
         ),
       ),
     );
@@ -61,6 +59,8 @@ class _AuthCardState extends State<AuthCard> {
   var _isLoading = false;
   var _isVisible = true;
 
+  final passFocus = FocusNode();
+
   void _showDialogBox(String errorMessage) {
     showDialog(
         context: context,
@@ -82,12 +82,12 @@ class _AuthCardState extends State<AuthCard> {
       // Invalid!
       return;
     }
-    _formKey.currentState!.save();
     FocusScopeNode currentFocus = FocusScope.of(context);
 
     if (!currentFocus.hasPrimaryFocus) {
       currentFocus.unfocus();
     }
+    _formKey.currentState!.save();
 
     setState(() {
       _isLoading = true;
@@ -109,25 +109,29 @@ class _AuthCardState extends State<AuthCard> {
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      elevation: 8.0,
-      child: Container(
-        height: 260,
-        constraints: const BoxConstraints(minHeight: 260),
-        width: deviceSize.width * 0.75,
-        padding: const EdgeInsets.all(16.0),
-        child: Form(
-          key: _formKey,
-          child: SingleChildScrollView(
+    return SingleChildScrollView(
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        elevation: 8.0,
+        child: Container(
+          height: 220,
+          //constraints: const BoxConstraints(minHeight: 260),
+          width: deviceSize.width * 0.75,
+          padding: const EdgeInsets.all(16.0),
+          child: Form(
+            key: _formKey,
             child: Column(
               children: <Widget>[
                 TextFormField(
                   decoration: const InputDecoration(
-                      labelText: 'Employee no', prefixIcon: Icon(Icons.person)),
+                      // focusColor: Color(0xffcb6ce6),
+                      labelText: 'Employee no',
+                      prefixIcon: Icon(Icons.person)),
                   keyboardType: TextInputType.number,
+                  onFieldSubmitted: (value) =>
+                      FocusScope.of(context).requestFocus(passFocus),
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'Employee no required';
@@ -139,7 +143,9 @@ class _AuthCardState extends State<AuthCard> {
                   },
                 ),
                 TextFormField(
+                  focusNode: passFocus,
                   decoration: InputDecoration(
+                      // focusColor: Color(0xffcb6ce6),
                       labelText: 'Password',
                       prefixIcon: const Icon(Icons.lock),
                       suffixIcon: GestureDetector(
@@ -155,6 +161,7 @@ class _AuthCardState extends State<AuthCard> {
                     if (value!.isEmpty) {
                       return 'Password required';
                     }
+                    return null;
                   },
                   onSaved: (value) {
                     _authData['password'] = value!;
@@ -174,7 +181,7 @@ class _AuthCardState extends State<AuthCard> {
                         ),
                         padding: const EdgeInsets.symmetric(
                             horizontal: 30.0, vertical: 8.0),
-                        onPrimary: Theme.of(context).primaryColor,
+                        backgroundColor: Theme.of(context).colorScheme.primary,
                         foregroundColor: Colors.white
                         //Theme.of(context).primaryTextTheme.button.color,
                         ),

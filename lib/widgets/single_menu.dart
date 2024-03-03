@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import '../models/dashboard_menu.dart';
-import 'package:provider/provider.dart';
-import '../providers/attendenceList.dart';
 
 class SingleMenu extends StatelessWidget {
   final DashboardMenu menu;

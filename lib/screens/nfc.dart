@@ -2,12 +2,12 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:nfc_manager/nfc_manager.dart';
-import 'package:nfc_manager/platform_tags.dart';
-import 'dart:convert' show utf8;
+
 // ignore: depend_on_referenced_packages
 import 'package:provider/provider.dart';
 import '../providers/record_attendance.dart';
 
+// ignore: must_be_immutable
 class NFC extends StatelessWidget {
   static const routeName = '/nfc';
   bool isNfcAvailable = false;

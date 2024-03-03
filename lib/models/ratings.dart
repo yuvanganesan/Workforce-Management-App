@@ -1,6 +1,3 @@
-import 'package:flutter/cupertino.dart';
-import 'package:provider/provider.dart';
-
 class Ratings {
   final String empId;
   final String name;

@@ -75,51 +75,6 @@ class HomeTop extends StatelessWidget {
               Text(_empDetail.designation,
                   style: const TextStyle(fontSize: 20, color: Colors.white))
             ])),
-        /*     Positioned(
-            left: width * .15,
-            top: constraints.maxHeight * .70,
-            //height * .28,
-            child: Row(
-              children: const [
-                Card(
-                  color: Colors.amberAccent,
-                  child: Padding(
-                    padding: EdgeInsets.all(15),
-                    child: Text(
-                      '01',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ),
-                ),
-                Card(
-                  child: Padding(
-                    padding: EdgeInsets.all(15),
-                    child: Text(
-                      '02',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ),
-                ),
-                Card(
-                  child: Padding(
-                    padding: EdgeInsets.all(15),
-                    child: Text(
-                      '03',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ),
-                ),
-                Card(
-                  child: Padding(
-                    padding: EdgeInsets.all(15),
-                    child: Text(
-                      '04',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ),
-                ),
-              ],
-            ))*/
       ]),
     );
   }

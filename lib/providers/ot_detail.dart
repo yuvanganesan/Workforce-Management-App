@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import '../models/httpException.dart';
 import 'package:intl/intl.dart';
+import './ip.dart';
 
 class OtDetail with ChangeNotifier {
   List<SalaryCard> _salaryCardList = [];
@@ -21,18 +22,17 @@ class OtDetail with ChangeNotifier {
     return total.round().toString();
   }
 
-  final _ip = 'http://192.168.1.100:94';
   Future<void> fetchOtSalary(int empId, DateTime date1, DateTime date2) async {
     try {
       final url = Uri.parse(
-          '$_ip/Overtime/GetOvertimeDetails?empID=$empId&fromDate=${DateFormat('yyyy-MM-dd').format(date1)}&toDate=${DateFormat('yyyy-MM-dd').format(date2)}');
+          '$ip/Overtime/GetOvertimeDetails?empID=$empId&fromDate=${DateFormat('yyyy-MM-dd').format(date1)}&toDate=${DateFormat('yyyy-MM-dd').format(date2)}');
       final response = await http.get(url);
-      // print('inside $empId');
+
       if (response.statusCode == 200) {
         final List<dynamic> loadedData =
             (json.decode(response.body) as Map<String, dynamic>)['data'];
         // print(loadedData);
-        if (loadedData == null) // || loadedData.length == 0)
+        if (loadedData.isEmpty) // || loadedData.length == 0)
         {
           throw HttpException('There is no records');
         }
